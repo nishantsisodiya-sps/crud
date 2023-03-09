@@ -1,0 +1,22 @@
+<div class="mainDiv">
+    <div class="contentDiv">
+        <div class="taskAddDiv">
+            <form [formGroup]="Tasktoadd" >
+            <input id="input" type="text" placeholder="Add Task" formControlName="task" #val>
+            <button (click)="submit(val.value)">ADD</button>
+        </form>
+        </div>
+        <hr>
+        <div class="taskDiv" *ngFor="let item of initialItem; let i = index" >
+            <div class="taskbar">
+                <p><b>{{i+1}}.</b></p>&nbsp;
+                <p>{{item}}</p>
+            </div>
+            <div class="buttons">
+                <button (click)="editItem(item , i)" >Edit</button>
+                <button (click)="removeTask(i)">Delete</button>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
